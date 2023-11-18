@@ -1,0 +1,26 @@
+# Plans & Specs (initial brief)
+0*.md
+*plan*.md
+04_calculatrice_console_c.md
+docs/
+
+# Build & Binaries
+build/
+bin/
+out/
+dist/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Tooling & IDE
+.cache/
+compile_commands.json
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
