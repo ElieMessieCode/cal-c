@@ -1,0 +1,272 @@
+# Expression	Mode	Type	Value
+2 + 3	float	OK	5
+2 - 3	float	OK	-1
+2 * 3	float	OK	6
+6 / 2	float	OK	3
+7 % 4	float	OK	3
+2 + 3 * 4	float	OK	14
+(2 + 3) * 4	float	OK	20
+10 - 3 - 2	float	OK	5
+20 / 4 / 2	float	OK	2.5
+2 ^ 3 ^ 2	float	OK	512
+-2 ^ 2	float	OK	-4
+(-2) ^ 2	float	OK	4
+2 ^ -2	float	OK	0.25
+-(2 ^ 2)	float	OK	-4
+2 * 3 ^ 2	float	OK	18
+2 ^ 3 * 4	float	OK	32
+2 ^ (3 * 2)	float	OK	64
+0xFF	float	OK	255
+0x10	float	OK	16
+0x1A	float	OK	26
+0x0	float	OK	0
+0x100	float	OK	256
+0b1010	float	OK	10
+0b1111	float	OK	15
+0b0	float	OK	0
+0b1000_0000	float	OK	128
+1_000_000	float	OK	1000000
+10_000 + 2_500	float	OK	12500
+0.5 + 0.25	float	OK	0.75
+.5 * 4	float	OK	2
+1.5e2	float	OK	150
+1.2e-3	float	OK	0.0012
+2.5E1	float	OK	25
+3.0	float	OK	3
+pi	float	OK	3.141592653589793
+e	float	OK	2.718281828459045
+pi * 2	float	OK	6.283185307179586
+e ^ 2	float	OK	7.38905609893065
+x = 10	float	OK	10
+x + 5	float	OK	15
+x * 2 - 4	float	OK	16
+y = x / 2	float	OK	5
+y ^ 2	float	OK	25
+ans	float	OK	25
+ans + 1	float	OK	26
+sin(0)	float	OK	0
+sin(pi / 2)	float	OK	1
+sin(pi)	float	OK	0
+sin(3 * pi / 2)	float	OK	-1
+cos(0)	float	OK	1
+cos(pi / 2)	float	OK	0
+cos(pi)	float	OK	-1
+cos(2 * pi)	float	OK	1
+tan(0)	float	OK	0
+tan(pi / 4)	float	OK	1
+asin(0)	float	OK	0
+asin(1)	float	OK	1.5707963267948966
+asin(-1)	float	OK	-1.5707963267948966
+acos(1)	float	OK	0
+acos(0)	float	OK	1.5707963267948966
+acos(-1)	float	OK	3.141592653589793
+atan(0)	float	OK	0
+atan(1)	float	OK	0.7853981633974483
+atan(-1)	float	OK	-0.7853981633974483
+sqrt(0)	float	OK	0
+sqrt(1)	float	OK	1
+sqrt(4)	float	OK	2
+sqrt(9)	float	OK	3
+sqrt(16)	float	OK	4
+sqrt(25)	float	OK	5
+sqrt(100)	float	OK	10
+sqrt(2)	float	OK	1.4142135623730951
+cbrt(0)	float	OK	0
+cbrt(1)	float	OK	1
+cbrt(8)	float	OK	2
+cbrt(27)	float	OK	3
+cbrt(-8)	float	OK	-2
+cbrt(-27)	float	OK	-3
+exp(0)	float	OK	1
+exp(1)	float	OK	2.718281828459045
+exp(2)	float	OK	7.38905609893065
+exp(-1)	float	OK	0.36787944117144233
+ln(1)	float	OK	0
+ln(e)	float	OK	1
+ln(e ^ 2)	float	OK	2
+log(1)	float	OK	0
+log(e)	float	OK	1
+log10(1)	float	OK	0
+log10(10)	float	OK	1
+log10(100)	float	OK	2
+log10(1000)	float	OK	3
+log10(0.1)	float	OK	-1
+abs(5)	float	OK	5
+abs(-5)	float	OK	5
+abs(0)	float	OK	0
+abs(-3.14)	float	OK	3.14
+floor(3.7)	float	OK	3
+floor(3.2)	float	OK	3
+floor(-3.2)	float	OK	-4
+floor(-3.7)	float	OK	-4
+floor(5)	float	OK	5
+ceil(3.2)	float	OK	4
+ceil(3.7)	float	OK	4
+ceil(-3.2)	float	OK	-3
+ceil(-3.7)	float	OK	-3
+ceil(5)	float	OK	5
+round(3.2)	float	OK	3
+round(3.7)	float	OK	4
+round(3.5)	float	OK	4
+round(-3.2)	float	OK	-3
+round(-3.7)	float	OK	-4
+min(3, 7)	float	OK	3
+min(7, 3)	float	OK	3
+min(-5, 2)	float	OK	-5
+min(0, 0)	float	OK	0
+max(3, 7)	float	OK	7
+max(7, 3)	float	OK	7
+max(-5, 2)	float	OK	2
+max(0, 0)	float	OK	0
+pow(2, 3)	float	OK	8
+pow(2, 8)	float	OK	256
+pow(3, 3)	float	OK	27
+pow(4, 0.5)	float	OK	2
+pow(27, 1/3)	float	OK	3
+hypot(3, 4)	float	OK	5
+hypot(5, 12)	float	OK	13
+hypot(8, 15)	float	OK	17
+hypot(0, 0)	float	OK	0
+0!	float	OK	1
+1!	float	OK	1
+2! + 1	float	OK	3
+3!	float	OK	6
+4!	float	OK	24
+5!	float	OK	120
+6!	float	OK	720
+7!	float	OK	5040
+8!	float	OK	40320
+9!	float	OK	362880
+10!	float	OK	3628800
+12!	float	OK	479001600
+15!	float	OK	1307674368000
+20!	float	OK	2432902008176640000
+170!	float	OK	7.257415615307999e+306
+3!!	float	OK	720
+2!!!	float	OK	2
+3! + 4!	float	OK	30
+5! / 4!	float	OK	5
+(2 + 1)!	float	OK	6
+1/2 + 1/3	exact	OK	5/6
+1/3 + 1/6	exact	OK	1/2
+1/4 + 1/4	exact	OK	1/2
+2/5 + 3/5	exact	OK	1
+7/12 - 1/4	exact	OK	1/3
+5/6 - 1/2	exact	OK	1/3
+1 - 2/3	exact	OK	1/3
+3/4 * 2/5	exact	OK	3/10
+2/3 * 3/2	exact	OK	1
+5/7 * 7/5	exact	OK	1
+(3/4) / (2/5)	exact	OK	15/8
+(2/3) / (4/9)	exact	OK	3/2
+1 / (2/3)	exact	OK	3/2
+(2/3) ^ 3	exact	OK	8/27
+(1/2) ^ 4	exact	OK	1/16
+(2/3) ^ -2	exact	OK	9/4
+(3/5) ^ 0	exact	OK	1
+-(2/3)	exact	OK	-2/3
+abs(-7/8)	exact	OK	7/8
+abs(7/8)	exact	OK	7/8
+min(1/2, 1/3)	exact	OK	1/3
+max(1/2, 1/3)	exact	OK	1/2
+sqrt(9/16)	exact	OK	3/4
+sqrt(4/25)	exact	OK	2/5
+sqrt(100/49)	exact	OK	10/7
+10 % 3	exact	OK	1
+14 % 5	exact	OK	4
+25 % 7	exact	OK	4
+5!	exact	OK	120
+6!	exact	OK	720
+7!	exact	OK	5040
+8!	exact	OK	40320
+0!	exact	OK	1
+1!	exact	OK	1
+1 + 2 + 3 + 4 + 5	float	OK	15
+100 - 20 - 10 - 5	float	OK	65
+2 * 3 * 4 * 5	float	OK	120
+120 / 2 / 3 / 4	float	OK	5
+((2 + 3) * (4 + 5)) / 5	float	OK	9
+(10 + (20 + (30 + 40)))	float	OK	100
+2 ^ 2 ^ 2 ^ 2	float	OK	65536
+- - - 5	float	OK	-5
++ + 10	float	OK	10
+- - 10	float	OK	10
+1/2 + 1/3 + 1/4	exact	OK	13/12
+1/2 + 1/4 + 1/8 + 1/16	exact	OK	15/16
+(1/2 + 1/3) * (1/4 + 1/5)	exact	OK	3/8
+(1/2) / (1/3) / (1/4)	exact	OK	6
+1 / 0	float	CALC_ERR_DIV_ZERO	0
+5 / (2 - 2)	float	CALC_ERR_DIV_ZERO	0
+10 % 0	float	CALC_ERR_DIV_ZERO	0
+0 ^ -1	float	CALC_ERR_DIV_ZERO	0
+pow(0, -2)	float	CALC_ERR_DIV_ZERO	0
+1/0	exact	CALC_ERR_DIV_ZERO	0
+(1/2) / 0	exact	CALC_ERR_DIV_ZERO	0
+(1/2) / (1/3 - 1/3)	exact	CALC_ERR_DIV_ZERO	0
+sqrt(-1)	float	CALC_ERR_DOMAIN	0
+sqrt(-4)	float	CALC_ERR_DOMAIN	0
+ln(0)	float	CALC_ERR_DOMAIN	0
+ln(-5)	float	CALC_ERR_DOMAIN	0
+log(0)	float	CALC_ERR_DOMAIN	0
+log(-10)	float	CALC_ERR_DOMAIN	0
+log10(0)	float	CALC_ERR_DOMAIN	0
+log10(-1)	float	CALC_ERR_DOMAIN	0
+asin(2)	float	CALC_ERR_DOMAIN	0
+asin(-1.5)	float	CALC_ERR_DOMAIN	0
+acos(2)	float	CALC_ERR_DOMAIN	0
+acos(-1.5)	float	CALC_ERR_DOMAIN	0
+(-2) ^ 0.5	float	CALC_ERR_DOMAIN	0
+pow(-4, 0.5)	float	CALC_ERR_DOMAIN	0
+(-1)!	float	CALC_ERR_DOMAIN	0
+(0.5)!	float	CALC_ERR_DOMAIN	0
+(-5)!	exact	CALC_ERR_NOT_AN_INTEGER	0
+(1/2)!	exact	CALC_ERR_NOT_AN_INTEGER	0
+sin()	float	CALC_ERR_ARITY	0
+sin(1, 2)	float	CALC_ERR_ARITY	0
+cos()	float	CALC_ERR_ARITY	0
+cos(1, 2)	float	CALC_ERR_ARITY	0
+tan()	float	CALC_ERR_ARITY	0
+tan(1, 2, 3)	float	CALC_ERR_ARITY	0
+sqrt()	float	CALC_ERR_ARITY	0
+sqrt(1, 2)	float	CALC_ERR_ARITY	0
+min()	float	CALC_ERR_ARITY	0
+min(1)	float	CALC_ERR_ARITY	0
+min(1, 2, 3)	float	CALC_ERR_ARITY	0
+max()	float	CALC_ERR_ARITY	0
+max(1)	float	CALC_ERR_ARITY	0
+max(1, 2, 3)	float	CALC_ERR_ARITY	0
+pow()	float	CALC_ERR_ARITY	0
+pow(1)	float	CALC_ERR_ARITY	0
+pow(1, 2, 3)	float	CALC_ERR_ARITY	0
+hypot()	float	CALC_ERR_ARITY	0
+hypot(1)	float	CALC_ERR_ARITY	0
+hypot(1, 2, 3)	float	CALC_ERR_ARITY	0
+sin(1)	exact	CALC_ERR_DOMAIN	0
+cos(1)	exact	CALC_ERR_DOMAIN	0
+exp(1)	exact	CALC_ERR_DOMAIN	0
+ln(2)	exact	CALC_ERR_DOMAIN	0
+sqrt(2)	exact	CALC_ERR_DOMAIN	0
+sqrt(3/5)	exact	CALC_ERR_DOMAIN	0
+(1/2) ^ (1/2)	exact	CALC_ERR_NOT_AN_INTEGER	0
+(1/2) % (1/3)	exact	CALC_ERR_NOT_AN_INTEGER	0
+foo	float	CALC_ERR_UNKNOWN_IDENT	0
+bar + 2	float	CALC_ERR_UNKNOWN_IDENT	0
+unknown_fn(1)	float	CALC_ERR_UNKNOWN_IDENT	0
+pi = 4	float	CALC_ERR_UNASSIGNABLE	0
+e = 3	float	CALC_ERR_UNASSIGNABLE	0
+sin = 5	float	CALC_ERR_UNASSIGNABLE	0
+cos = 2	float	CALC_ERR_UNASSIGNABLE	0
+171!	float	CALC_ERR_OVERFLOW	0
+21!	exact	CALC_ERR_OVERFLOW	0
++	float	CALC_ERR_SYNTAX	0
+* 3	float	CALC_ERR_SYNTAX	0
+2 +	float	CALC_ERR_SYNTAX	0
+(2 + 3	float	CALC_ERR_SYNTAX	0
+2 + 3)	float	CALC_ERR_SYNTAX	0
+2 , 3	float	CALC_ERR_SYNTAX	0
+0x	float	CALC_ERR_SYNTAX	0
+0b	float	CALC_ERR_SYNTAX	0
+1..2	float	CALC_ERR_SYNTAX	0
+()	float	CALC_ERR_SYNTAX	0
+sin(,)	float	CALC_ERR_SYNTAX	0
+min(1,)	float	CALC_ERR_SYNTAX	0
