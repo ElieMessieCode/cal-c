@@ -28,17 +28,14 @@ void calc_vars_init(CalcVarTable *table) {
     }
     memset(table, 0, sizeof(*table));
 
-    // pi
     strncpy(table->entries[0].name, "pi", CALC_VAR_NAME_MAX_LEN - 1);
     table->entries[0].value = calc_value_from_float(3.141592653589793238462643383279502884);
     table->entries[0].is_const = true;
 
-    // e
     strncpy(table->entries[1].name, "e", CALC_VAR_NAME_MAX_LEN - 1);
     table->entries[1].value = calc_value_from_float(2.718281828459045235360287471352662497);
     table->entries[1].is_const = true;
 
-    // ans
     strncpy(table->entries[2].name, "ans", CALC_VAR_NAME_MAX_LEN - 1);
     table->entries[2].value = calc_value_from_float(0.0);
     table->entries[2].is_const = false;

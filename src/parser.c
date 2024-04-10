@@ -54,7 +54,7 @@ static CalcAstNode *parse_primary(CalcLexer *lexer, CalcArena *arena, size_t dep
         }
 
         if (next_tok.kind == TOK_LPAREN) {
-            calc_lexer_next(lexer, &next_tok, err); // consume '('
+            calc_lexer_next(lexer, &next_tok, err);
 
             CalcAstNode *call_node = alloc_ast_node(arena, AST_CALL, ident_span);
             if (call_node == NULL) {
@@ -356,7 +356,7 @@ static CalcAstNode *parse_stmt(CalcLexer *lexer, CalcArena *arena, CalcError *er
         }
 
         if (tok2.kind == TOK_ASSIGN) {
-            calc_lexer_next(lexer, &tok2, err); // consume '='
+            calc_lexer_next(lexer, &tok2, err);
             CalcAstNode *expr = parse_expr(lexer, arena, 1, err);
             if (expr == NULL) {
                 return NULL;
@@ -374,7 +374,6 @@ static CalcAstNode *parse_stmt(CalcLexer *lexer, CalcArena *arena, CalcError *er
         }
     }
 
-    // Reset cursor to 0 and re-parse expr
     lexer->cursor = 0;
     lexer->has_peek = false;
 

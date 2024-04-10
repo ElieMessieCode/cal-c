@@ -18,13 +18,8 @@ static bool eval_call_float(const CalcAstNode *ast, const double *arg_vals, doub
     const char *name = ast->as.call.name;
     size_t count = ast->as.call.arg_count;
     CalcSpan span = ast->span;
-
-#if defined(__STDC_VERSION__) && !defined(_MSC_VER)
-    #pragma STDC FENV_ACCESS ON
-#endif
     feclearexcept(FE_ALL_EXCEPT);
 
-    // 1-arg functions
     if (strcmp(name, "sin") == 0) {
         if (count != 1) {
             calc_error_set(err, CALC_ERR_ARITY, span, "Function 'sin' expects 1 argument (got %zu)", count);
@@ -135,9 +130,7 @@ static bool eval_call_float(const CalcAstNode *ast, const double *arg_vals, doub
             return false;
         }
         *out = round(arg_vals[0]);
-    }
-    // 2-arg functions
-    else if (strcmp(name, "min") == 0) {
+    } else if (strcmp(name, "min") == 0) {
         if (count != 2) {
             calc_error_set(err, CALC_ERR_ARITY, span, "Function 'min' expects 2 arguments (got %zu)", count);
             return false;
@@ -245,7 +238,6 @@ static bool eval_call_exact(const CalcAstNode *ast, const CalcFraction *arg_frac
         return false;
     }
 
-    // Check if known math function
     if (calc_vars_is_reserved(name)) {
         calc_error_set(err, CALC_ERR_DOMAIN, span, "Function '%s' is not supported in exact mode; use ':mode float'", name);
         return false;
@@ -316,9 +308,6 @@ static bool eval_node_float(const CalcAstNode *ast, CalcVarTable *vars, const Ca
                 return false;
             }
 
-#if defined(__STDC_VERSION__) && !defined(_MSC_VER)
-            #pragma STDC FENV_ACCESS ON
-#endif
             feclearexcept(FE_ALL_EXCEPT);
 
             switch (ast->as.binary.op) {

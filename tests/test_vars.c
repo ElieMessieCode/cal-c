@@ -30,16 +30,13 @@ TEST_BEGIN(test_vars_set_and_get)
     ASSERT_TRUE(calc_vars_get(&table, "x", &out));
     ASSERT_NEAR(out.v.fval, 10.5, 1e-12);
 
-    // Constant protection
     CalcValue v_bad = calc_value_from_float(4.0);
     ASSERT_FALSE(calc_vars_set(&table, "pi", &v_bad, &err, (CalcSpan){0, 0}));
     ASSERT_EQ_INT(err.code, CALC_ERR_UNASSIGNABLE);
 
-    // Reserved function name protection
     ASSERT_FALSE(calc_vars_set(&table, "sin", &v_bad, &err, (CalcSpan){0, 0}));
     ASSERT_EQ_INT(err.code, CALC_ERR_UNASSIGNABLE);
 
-    // ans update
     CalcValue v_ans = calc_value_from_float(42.0);
     calc_vars_set_ans(&table, &v_ans);
     ASSERT_TRUE(calc_vars_get(&table, "ans", &out));

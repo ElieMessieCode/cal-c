@@ -12,43 +12,36 @@ TEST_BEGIN(test_lexer_numbers)
     CalcToken tok;
     CalcError err;
 
-    // 123
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_NUMBER);
     ASSERT_TRUE(tok.is_integer_literal);
     ASSERT_EQ_INT(tok.val.ival, 123);
 
-    // 45.67
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_NUMBER);
     ASSERT_FALSE(tok.is_integer_literal);
     ASSERT_NEAR(tok.val.fval, 45.67, 1e-12);
 
-    // 1.2e3
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_NUMBER);
     ASSERT_FALSE(tok.is_integer_literal);
     ASSERT_NEAR(tok.val.fval, 1200.0, 1e-12);
 
-    // 0xFF
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_NUMBER);
     ASSERT_TRUE(tok.is_integer_literal);
     ASSERT_EQ_INT(tok.val.ival, 255);
 
-    // 0b1010
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_NUMBER);
     ASSERT_TRUE(tok.is_integer_literal);
     ASSERT_EQ_INT(tok.val.ival, 10);
 
-    // 1_000_000
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_NUMBER);
     ASSERT_TRUE(tok.is_integer_literal);
     ASSERT_EQ_INT(tok.val.ival, 1000000);
 
-    // EOF
     ASSERT_TRUE(calc_lexer_next(&lex, &tok, &err));
     ASSERT_EQ_INT(tok.kind, TOK_EOF);
 TEST_END()

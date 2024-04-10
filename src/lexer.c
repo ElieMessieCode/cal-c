@@ -52,7 +52,6 @@ static bool lex_number(CalcLexer *lexer, CalcToken *tok, CalcError *err) {
     const char *src = lexer->src;
     size_t len = lexer->src_len;
 
-    // Check for hex 0x or bin 0b
     if (src[start] == '0' && start + 1 < len) {
         char next = src[start + 1];
         if (next == 'x' || next == 'X') {
@@ -126,7 +125,6 @@ static bool lex_number(CalcLexer *lexer, CalcToken *tok, CalcError *err) {
         }
     }
 
-    // Decimal or floating point
     char clean_buf[128];
     size_t clean_pos = 0;
     bool has_dot = false;
@@ -244,7 +242,6 @@ static bool fetch_next_token(CalcLexer *lexer, CalcToken *tok, CalcError *err) {
     size_t start = lexer->cursor;
     char c = lexer->src[start];
 
-    // Numbers
     if (c >= '0' && c <= '9') {
         return lex_number(lexer, tok, err);
     }
@@ -252,12 +249,10 @@ static bool fetch_next_token(CalcLexer *lexer, CalcToken *tok, CalcError *err) {
         return lex_number(lexer, tok, err);
     }
 
-    // Identifiers
     if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_') {
         return lex_ident(lexer, tok, err);
     }
 
-    // Operators and punctuation
     lexer->cursor++;
     tok->span = (CalcSpan){start, 1};
     tok->is_integer_literal = false;
