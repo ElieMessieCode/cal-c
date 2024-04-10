@@ -1,3 +1,6 @@
+#define _POSIX_C_SOURCE 200809L
+#define _DEFAULT_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -201,12 +204,10 @@ int main(int argc, char **argv) {
         }
     }
 
-    // One-shot mode
     if (eval_expr != NULL) {
         return run_expression(eval_expr, &vars, &cfg, &arena, true);
     }
 
-    // Interactive or stream mode
     bool is_interactive = isatty_compat(fileno_compat(stdin)) != 0;
 
     if (is_interactive) {
@@ -230,13 +231,11 @@ int main(int argc, char **argv) {
             break;
         }
 
-        // Trim trailing newline
         size_t line_len = strlen(line_buf);
         while (line_len > 0 && (line_buf[line_len - 1] == '\n' || line_buf[line_len - 1] == '\r')) {
             line_buf[--line_len] = '\0';
         }
 
-        // Skip empty lines
         size_t start = 0;
         while (line_buf[start] == ' ' || line_buf[start] == '\t') {
             start++;

@@ -27,12 +27,10 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     CalcValue val;
     CalcError err;
 
-    // Test in float mode
     calc_arena_reset(&arena);
     calc_error_init(&err);
     calc_eval_string((const char *)data, size, &vars, &cfg_float, &arena, &val, &err);
 
-    // Test in exact mode
     calc_arena_reset(&arena);
     calc_error_init(&err);
     calc_eval_string((const char *)data, size, &vars, &cfg_exact, &arena, &val, &err);
@@ -70,7 +68,6 @@ int main(void) {
         LLVMFuzzerTestOneInput((const uint8_t *)samples[i], strlen(samples[i]));
     }
 
-    // Pseudo-random mutations
     char fuzz_buf[256];
     const char alphabet[] = "0123456789+-*/%^!(),. _abcdefghijklmnopqrstuvwxyz";
     size_t alpha_len = sizeof(alphabet) - 1;
