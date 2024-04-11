@@ -310,7 +310,6 @@ bool calc_fraction_mod(CalcFraction a, CalcFraction b, CalcFraction *out, CalcEr
 }
 
 bool calc_fraction_min(CalcFraction a, CalcFraction b, CalcFraction *out) {
-    int64_t diff_num = 0, diff_den = 0;
     CalcFraction diff;
     if (calc_fraction_sub(a, b, &diff, NULL, (CalcSpan){0, 0})) {
         if (diff.num <= 0) {
